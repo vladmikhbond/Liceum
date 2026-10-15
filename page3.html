@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мінітест — Перевір свої знання</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .quiz-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px #00000015;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #334155;
+        }
+
+        .answer {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .answer:hover {
+            background-color: #e0ecff;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-card">
+        <h1>Перевір свої знання!</h1>
+
+        <h2>
+            Який HTML-тег використовують
+            для створення найбільшого заголовка?
+        </h2>
+
+        <div id="quizForm">
+
+            <label class="answer">
+                <input type="radio" name="answer" value="h1">
+                &lt;h1&gt;
+            </label>
+
+            <label class="answer">
+                <input type="radio" name="answer" value="p">
+                &lt;p&gt;
+            </label>
+
+            <label class="answer">
+                <input type="radio" name="answer" value="img">
+                &lt;img&gt;
+            </label>
+
+            <button id="checkButton">
+                Перевірити відповідь
+            </button>
+
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Знаходимо кнопку на сторінці.
+        const checkButton = document.getElementById("checkButton");
+
+        // Реагуємо на натискання кнопки.
+        checkButton.addEventListener("click", function() {
+            // Знаходимо вибрану відповідь.
+            const selected = document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+            const result = document.getElementById("result");
+
+            // Перевіряємо, чи учень вибрав відповідь.
+            if (selected == null) {
+                result.textContent = "Спочатку обери відповідь!";
+                result.style.color = "#b45309";
+                return;
+            }
+
+            // Перевіряємо правильність відповіді.
+            if (selected.value == "h1") {
+                result.textContent = "Правильно! Молодець!";
+                result.style.color = "#15803d";
+            } else {
+                result.textContent = "Ні! Спробуй ще раз.";
+                result.style.color = "#dc2626";
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтерактивний лічильник</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            color: #1e293b;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+
+        #count {
+            margin: 24px 0;
+            font-size: 64px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 9px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .change-button {
+            background: #2563eb;
+            color: white;
+        }
+
+        .change-button:hover {
+            background: #1d4ed8;
+        }
+
+        .reset-button {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        .reset-button:hover {
+            background: #cbd5e1;
+        }
+
+        #message {
+            min-height: 24px;
+            margin-bottom: 0;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Інтерактивний лічильник</h1>
+    <p>Натискайте кнопки, щоб змінювати число.</p>
+
+    <div id="count" aria-live="polite">0</div>
+    <div id="count" aria-live="polite">0</div>
+
+    <div class="buttons">
+        <button class="change-button" onclick="changeCount(1)">
+            +1 Додати
+        </button>
+        <button class="change-button" onclick="changeCount(-1)">
+            −1 Відняти
+        </button>
+        <button class="reset-button" onclick="resetCount()">
+            Скинути
+        </button>
+    </div>
+
+    <p id="message">Почніть рахувати!</p>
+
+
+    <script>
+        // Зберігаємо поточне значення лічильника.
+        let count = 0;
+
+        // Змінюємо значення на передану величину.
+        function changeCount(amount) {
+            count = count + amount;
+            updatePage();
+        }
+
+        // Повертаємо лічильник до нуля.
+        function resetCount() {
+            count = 0;
+            updatePage();
+        }
+
+        // Оновлюємо число та повідомлення на сторінці.
+        function updatePage() {
+            // число
+            document.getElementById("count").textContent = count;
+            
+            // повідомлення
+            let mes = document.getElementById("message");
+            if (count > 0) {
+                mes.textContent = "Число додатне!";
+            } else if (count < 0) {
+                mes.textContent = "Число від'ємне!";
+            } else {
+                mes.textContent = "Лічильник дорівнює нулю.";
+            }
+        }
+    </script>
+</body>
+</html>

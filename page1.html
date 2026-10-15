@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про мене</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        h2 {
+            color: #334155;
+        }
+
+        p {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #15803d;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Привіт! Я Андрій</h1>
+
+    <p>
+        Я вивчаю програмування та створюю
+        свої перші вебсторінки.
+    </p>
+
+    <h2>Мої захоплення</h2>
+
+    <ul style="display: inline-block; text-align: left;">
+        <li>Програмування</li>
+        <li>Комп'ютерні ігри</li>
+        <li>Настільний тенніс</li>
+    </ul>
+
+    <p>
+        Мій улюблений сайт:
+        <a href="https://www.wikipedia.org/"
+            target="_blank">
+            Вікіпедія
+        </a>
+    </p>
+
+    <button onclick="showMessage()">
+        Показати цікавинку
+    </button>
+
+    <p id="message"></p>
+
+    <script>
+        function showMessage() {
+            let el = document.getElementById("message");
+            el.textContent = "Цікавий факт: я хочу зайти на Еверест!";
+        }
+    </script>
+</body>
+</html>

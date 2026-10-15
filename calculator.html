@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h2>Калькулятор</h2>
+
+    <input type="number" id="A" value="0">
+
+    <select id="Op">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+    </select>
+
+    <input type="number" id="B" value="0">
+<
+    <button onclick="calc()">=</button>
+
+    <input id="result" readonly>
+
+    <script>
+        function calc() {
+            const a = +A.value;
+            const b = +B.value;
+            const op = Op.value;
+            let r;
+            if (op == "+") r = a + b;
+            if (op == "-") r = a - b;
+            if (op == "*") r = a * b;
+            if (op == "/") r = a / b;
+
+            result.value = r;
+        }
+    </script>
+</body>
+</html>
